@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Math Basics Interactive Website</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Custom styles */
+    body {
+      background-color: #f8f9fa;
+      color: #495057;
+    }
+    .container {
+      max-width: 960px;
+      margin-right: auto;
+      margin-left: auto;
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+    .mt-5 {
+      margin-top: 3rem !important;
+    }
+    .form-control {
+      display: block;
+      width: 100%;
+      padding: 0.375rem 0.75rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #495057;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid #ced4da;
+      border-radius: 0.25rem;
+      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+    .btn {
+      display: inline-block;
+      font-weight: 400;
+      color: #212529;
+      text-align: center;
+      vertical-align: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      background-color: transparent;
+      border: 1px solid transparent;
+      padding: 0.375rem 0.75rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      border-radius: 0.25rem;
+      transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+    .btn-primary {
+      color: #fff;
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+    .btn-primary:hover {
+      color: #fff;
+      background-color: #0069d9;
+      border-color: #0062cc;
+    }
+    .btn-secondary {
+      color: #fff;
+      background-color: #6c757d;
+      border-color: #6c757d;
+    }
+    .btn-secondary:hover {
+      color: #fff;
+      background-color: #5a6268;
+      border-color: #545b62;
+    }
+    .points-display {
+      text-align: center;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .section {
+      margin-bottom: 30px;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .formula-table {
+      margin-top: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 class="text-center">Math Basics Interactive Website</h1>
+<hr>
+  <a href="v2_analysis.html" class="btn btn-primary return-button">Detailed Analysis</a>
+
+    <!-- Simple Interest Section -->
+    <div class="section" id="simple-interest">
+      <h2 class="text-center">Simple Interest Calculation</h2>
+      <div id="interest-problem" class="text-center"></div>
+      <input type="text" id="interest-answer" class="form-control mt-3" placeholder="Enter your answer">
+      <button onclick="checkInterestAnswer()" class="btn btn-primary mt-3">Check Answer</button>
+      <p id="interest-feedback" class="mt-3"></p>
+      <button onclick="showInterestAnswer()" class="btn btn-secondary mt-3">Show Answer</button>
+      <button onclick="nextInterestProblem()" class="btn btn-secondary mt-3">Next</button>
+      <div class="points-display mt-3">Points: <span id="interest-points">0</span></div>
+      <div class="formula-table mt-3">
+        <h4>Formula for Simple Interest:</h4>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Symbol</th>
+              <th>Formula</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>P</td>
+              <td>Principal amount</td>
+            </tr>
+            <tr>
+              <td>r</td>
+              <td>Annual interest rate</td>
+            </tr>
+            <tr>
+              <td>t</td>
+              <td>Time period (in years)</td>
+            </tr>
+            <tr>
+              <td>I</td>
+              <td>Simple Interest</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Cylinder Section -->
+    <div class="section" id="cylinder">
+      <h2 class="text-center">Cylinder Surface Area and Volume</h2>
+      <div id="cylinder-problem" class="text-center"></div>
+      <h5 class="text-center">Your answer should be to 2 decimal places.</h5>
+      <input type="text" id="cylinder-answer" class="form-control mt-3" placeholder="Enter your answer">
+      <button onclick="checkCylinderAnswer()" class="btn btn-primary mt-3">Check Answer</button>
+      <p id="cylinder-feedback" class="mt-3"></p>
+      <button onclick="showCylinderAnswer()" class="btn btn-secondary mt-3">Show Answer</button>
+      <button onclick="nextCylinderProblem()" class="btn btn-secondary mt-3">Next</button>
+      <div class="points-display mt-3">Points: <span id="cylinder-points">0</span></div>
+      <div class="formula-table mt-3">
+        <h4>Formulas for Cylinder:</h4>
+        <p>Surface Area: 2πr(r + h)</p>
+        <p>Volume: πr<sup>2</sup>h</p>
+      </div>
+    </div>
+
+    <!-- Pythagoras Theorem Section -->
+    <div class="section" id="pythagoras">
+      <h2 class="
+      text-center">Pythagoras Theorem</h2>
+      <div id="pythagoras-problem" class="text-center"></div>
+      <input type="text" id="pythagoras-answer" class="form-control mt-3" placeholder="Enter your answer">
+      <button onclick="checkPythagorasAnswer()" class="btn btn-primary mt-3">Check Answer</button>
+      <p id="pythagoras-feedback" class="mt-3"></p>
+      <button onclick="showPythagorasAnswer()" class="btn btn-secondary mt-3">Show Answer</button>
+      <button onclick="nextPythagorasProblem()" class="btn btn-secondary mt-3">Next</button>
+      <div class="points-display mt-3">Points: <span id="pythagoras-points">0</span></div>
+      <div class="formula-table mt-3">
+        <h4>Formula for Pythagoras Theorem:</h4>
+        <p>c<sup>2</sup> = a<sup>2</sup> + b<sup>2</sup></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and custom JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    // Simple Interest Section Functions
+    let interestPoints = 0;
+
+    function generateInterestProblem() {
+        const principal = Math.floor(Math.random() * 1000) + 100; // Random principal amount between 100 and 1100
+        const rate = (Math.floor(Math.random() * 20) + 1) / 100; // Random annual interest rate between 1% and 20%
+        const time = Math.floor(Math.random() * 10) + 1; // Random time period between 1 and 10 years
+        const interest = (principal * rate * time).toFixed(2); // Calculate simple interest
+        const problem = `Calculate the simple interest for a principal amount of $${principal} at an annual interest rate of ${rate * 100}% for ${time} years.`;
+        document.getElementById('interest-problem').textContent = problem;
+        document.getElementById('interest-answer').value = '';
+        document.getElementById('interest-feedback').textContent = '';
+        document.getElementById('interest-answer').setAttribute('data-correct-answer', interest);
+    }
+
+    function checkInterestAnswer() {
+        const userInput = document.getElementById('interest-answer').value.trim();
+        const correctAnswer = document.getElementById('interest-answer').getAttribute('data-correct-answer');
+        if (userInput === correctAnswer) {
+            document.getElementById('interest-feedback').textContent = 'Correct!';
+            interestPoints++;
+            document.getElementById('interest-points').textContent = interestPoints;
+        } else {
+            document.getElementById('interest-feedback').textContent = 'Incorrect. Try again!';
+        }
+    }
+
+    function showInterestAnswer() {
+        const correctAnswer = document.getElementById('interest-answer').getAttribute('data-correct-answer');
+        document.getElementById('interest-feedback').textContent = `The correct answer is ${correctAnswer}.`;
+    }
+
+    function nextInterestProblem() {
+        generateInterestProblem();
+    }
+
+    // Cylinder Section Functions
+    let cylinderPoints = 0;
+
+    function generateCylinderProblem() {
+        const problemType = Math.floor(Math.random() * 2); // 0 for surface area, 1 for volume
+        let problemText = '';
+
+        if (problemType === 0) {
+            const radius = Math.floor(Math.random() * 10) + 1; // Random radius between 1 and 10
+            const height = Math.floor(Math.random() * 10) + 1; // Random height between 1 and 10
+            const surfaceArea = (2 * Math.PI * radius * (radius + height)).toFixed(2); // Calculate surface area
+            problemText = `Calculate the surface area of a cylinder with radius ${radius} units and height ${height} units.`;
+            document.getElementById('cylinder-answer').setAttribute('data-correct-answer', surfaceArea);
+        } else {
+            const radius = Math.floor(Math.random() * 10) + 1; // Random radius between 1 and 10
+            const height = Math.floor(Math.random() * 10) + 1; // Random height between 1 and 10
+            const volume = (Math.PI * Math.pow(radius, 2) * height).toFixed(2); // Calculate volume
+            problemText = `Calculate the volume of a cylinder with radius ${radius} units and height ${height} units
+text-center">Pythagoras Theorem</h2>
+      <div id="pythagoras-problem" class="text-center"></div>
+      <input type="text" id="pythagoras-answer" class="form-control mt-3" placeholder="Enter your answer">
+      <button onclick="checkPythagorasAnswer()" class="btn btn-primary mt-3">Check Answer</button>
+      <p id="pythagoras-feedback" class="mt-3"></p>
+      <button onclick="showPythagorasAnswer()" class="btn btn-secondary mt-3">Show Answer</button>
+      <button onclick="nextPythagorasProblem()" class="btn btn-secondary mt-3">Next</button>
+      <div class="points-display mt-3">Points: <span id="pythagoras-points">0</span></div>
+      <div class="formula-table mt-3">
+        <h4>Formula for Pythagoras Theorem:</h4>
+        <p>c<sup>2</sup> = a<sup>2</sup> + b<sup>2</sup></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and custom JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    // Simple Interest Section Functions
+    let interestPoints = 0;
+
+    function generateInterestProblem() {
+        const principal = Math.floor(Math.random() * 1000) + 100; // Random principal amount between 100 and 1100
+        const rate = (Math.floor(Math.random() * 20) + 1) / 100; // Random annual interest rate between 1% and 20%
+        const time = Math.floor(Math.random() * 10) + 1; // Random time period between 1 and 10 years
+        const interest = (principal * rate * time).toFixed(2); // Calculate simple interest
+        const problem = `Calculate the simple interest for a principal amount of $${principal} at an annual interest rate of ${rate * 100}% for ${time} years.`;
+        document.getElementById('interest-problem').textContent = problem;
+        document.getElementById('interest-answer').value = '';
+        document.getElementById('interest-feedback').textContent = '';
+        document.getElementById('interest-answer').setAttribute('data-correct-answer', interest);
+    }
+
+    function checkInterestAnswer() {
+        const userInput = document.getElementById('interest-answer').value.trim();
+        const correctAnswer = document.getElementById('interest-answer').getAttribute('data-correct-answer');
+        if (userInput === correctAnswer) {
+            document.getElementById('interest-feedback').textContent = 'Correct!';
+            interestPoints++;
+            document.getElementById('interest-points').textContent = interestPoints;
+        } else {
+            document.getElementById('interest-feedback').textContent = 'Incorrect. Try again!';
+        }
+    }
+
+    function showInterestAnswer() {
+        const correctAnswer = document.getElementById('interest-answer').getAttribute('data-correct-answer');
+        document.getElementById('interest-feedback').textContent = `The correct answer is ${correctAnswer}.`;
+    }
+
+    function nextInterestProblem() {
+        generateInterestProblem();
+    }
+
+    // Cylinder Section Functions
+    let cylinderPoints = 0;
+
+    function generateCylinderProblem() {
+        const problemType = Math.floor(Math.random() * 2); // 0 for surface area, 1 for volume
+        let problemText = '';
+
+        if (problemType === 0) {
+            const radius = Math.floor(Math.random() * 10) + 1; // Random radius between 1 and 10
+            const height = Math.floor(Math.random() * 10) + 1; // Random height between 1 and 10
+            const surfaceArea = (2 * Math.PI * radius * (radius + height)).toFixed(2); // Calculate surface area
+            problemText = `Calculate the surface area of a cylinder with radius ${radius} units and height ${height} units.`;
+            document.getElementById('cylinder-answer').setAttribute('data-correct-answer', surfaceArea);
+        } else {
+            const radius = Math.floor(Math.random() * 10) + 1; // Random radius between 1 and 10
+            const height = Math.floor(Math.random() * 10) + 1; // Random height between 1 and 10
+            const volume = (Math.PI * Math.pow(radius, 2) * height).toFixed(2); // Calculate volume
+            problemText = `Calculate the volume of a cylinder with radius ${radius} units and height ${height} units.`;
+            document.getElementById('cylinder-problem').textContent = problemText;
+            document.getElementById('cylinder-answer').setAttribute('data-correct-answer', volume);
+        }
+
+        document.getElementById('cylinder-problem').textContent = problemText;
+        document.getElementById('cylinder-answer').value = '';
+        document.getElementById('cylinder-feedback').textContent = '';
+    }
+
+    function checkCylinderAnswer() {
+        const userInput = document.getElementById('cylinder-answer').value.trim();
+        const correctAnswer = document.getElementById('cylinder-answer').getAttribute('data-correct-answer');
+        if (userInput === correctAnswer) {
+            document.getElementById('cylinder-feedback').textContent = 'Correct!';
+            cylinderPoints++;
+            document.getElementById('cylinder-points').textContent = cylinderPoints;
+        } else {
+            document.getElementById('cylinder-feedback').textContent = 'Incorrect. Try again!';
+        }
+    }
+
+    function showCylinderAnswer() {
+        const correctAnswer = document.getElementById('cylinder-answer').getAttribute('data-correct-answer');
+        document.getElementById('cylinder-feedback').textContent = `The correct answer is ${correctAnswer}.`;
+    }
+
+    function nextCylinderProblem() {
+        generateCylinderProblem();
+    }
+
+    // Pythagoras Theorem Section Functions
+    let pythagorasPoints = 0;
+
+    function generatePythagorasProblem() {
+        const sideA = Math.floor(Math.random() * 10) + 1; // Random value between 1 and 10 for side A
+        const sideB = Math.floor(Math.random() * 10) + 1; // Random value between 1 and 10 for side B
+        const sideC = Math.sqrt(Math.pow(sideA, 2) + Math.pow(sideB, 2)).toFixed(2); // Calculate side C using Pythagoras theorem
+        const problemText = `Calculate the length of side C in a right triangle where side A = ${sideA} units and side B = ${sideB} units.`;
+        document.getElementById('pythagoras-answer').setAttribute('data-correct-answer', sideC);
+        document.getElementById('pythagoras-problem').textContent = problemText;
+    }
+
+    function checkPythagorasAnswer() {
+        const userInput = document.getElementById('pythagoras-answer').value.trim();
+        const userInputFloat = parseFloat(userInput);
+        const correctAnswer = parseFloat(document.getElementById('pythagoras-answer').getAttribute('data-correct-answer'));
+
+        if (!isNaN(userInputFloat) && Math.abs(userInputFloat - correctAnswer) <= 0.01) { // Check within a tolerance of 0.01
+            document.getElementById('pythagoras-feedback').textContent = 'Correct!';
+            pythagorasPoints++;
+            document.getElementById('pythagoras-points').textContent = pythagorasPoints;
+        } else {
+            document.getElementById('pythagoras-feedback').textContent = 'Incorrect. Try again!';
+        }
+    }
+
+    function showPythagorasAnswer() {
+        const correctAnswer = parseFloat(document.getElementById('pythagoras-answer').getAttribute('data-correct-answer'));
+        document.getElementById('pythagoras-feedback').textContent = `The correct answer is ${correctAnswer}.`;
+    }
+
+    function nextPythagorasProblem() {
+        generatePythagorasProblem();
+        document.getElementById('pythagoras-answer').value = '';
+        document.getElementById('pythagoras-feedback').textContent = '';
+    }
+
+    // Generate initial problems on page load
+    generateInterestProblem();
+    generateCylinderProblem();
+    generatePythagorasProblem();
+  </script>
+</body>
+</html>
